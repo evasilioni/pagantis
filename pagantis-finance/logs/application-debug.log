@@ -1,0 +1,1088 @@
+2019-10-12 20:10:25.806 ERROR 10268 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.1 - create bank customers tables failed! Please restore backups and roll back database and code!
+2019-10-12 20:10:25.841 ERROR 10268 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "BANK_ID" not found; SQL statement:
+CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+) [42122-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 2
+Statement  : CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "BANK_ID" not found; SQL statement:
+CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+) [42122-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 2
+Statement  : CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "BANK_ID" not found; SQL statement:
+CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+) [42122-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 2
+Statement  : CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Column "BANK_ID" not found; SQL statement:
+CREATE TABLE BANK (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(500) NOT NULL,
+  PRIMARY KEY (bank_id)
+) [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:179) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:155) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.table.Table.getColumn(Table.java:682) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:119) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:88) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:122) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Command.executeUpdate(Command.java:261) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+
+2019-10-12 20:11:20.070 ERROR 16692 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.1 - create bank customers tables failed! Please restore backups and roll back database and code!
+2019-10-12 20:11:20.118 ERROR 16692 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE CUSTOMERS (
+  ID BIGINT(20) NOT NULL AUTO_INCREMENT,
+  FIRST_NAME VARCHAR(255) NOT NULL,
+  LAST_NAME VARCHAR(255) NOT NULL,
+  SOCIAL_SECURITY_NUMBER VARCHAR(255) NOT NULL,
+  EMAIL VARCHAR(500) NOT NULL,
+  PHONE_NUMBER VARCHAR(500) NOT NULL
+  PRIMARY KEY ([*]ID)
+) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+) [42001-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 8
+Statement  : CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE CUSTOMERS (
+  ID BIGINT(20) NOT NULL AUTO_INCREMENT,
+  FIRST_NAME VARCHAR(255) NOT NULL,
+  LAST_NAME VARCHAR(255) NOT NULL,
+  SOCIAL_SECURITY_NUMBER VARCHAR(255) NOT NULL,
+  EMAIL VARCHAR(500) NOT NULL,
+  PHONE_NUMBER VARCHAR(500) NOT NULL
+  PRIMARY KEY ([*]ID)
+) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+) [42001-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 8
+Statement  : CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_1__create_bank_customers_tables.sql failed
+-------------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE CUSTOMERS (
+  ID BIGINT(20) NOT NULL AUTO_INCREMENT,
+  FIRST_NAME VARCHAR(255) NOT NULL,
+  LAST_NAME VARCHAR(255) NOT NULL,
+  SOCIAL_SECURITY_NUMBER VARCHAR(255) NOT NULL,
+  EMAIL VARCHAR(500) NOT NULL,
+  PHONE_NUMBER VARCHAR(500) NOT NULL
+  PRIMARY KEY ([*]ID)
+) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+) [42001-197]
+Location   : db/migration/V1/V1_1__create_bank_customers_tables.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_1__create_bank_customers_tables.sql)
+Line       : 8
+Statement  : CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE CUSTOMERS (
+  ID BIGINT(20) NOT NULL AUTO_INCREMENT,
+  FIRST_NAME VARCHAR(255) NOT NULL,
+  LAST_NAME VARCHAR(255) NOT NULL,
+  SOCIAL_SECURITY_NUMBER VARCHAR(255) NOT NULL,
+  EMAIL VARCHAR(500) NOT NULL,
+  PHONE_NUMBER VARCHAR(500) NOT NULL
+  PRIMARY KEY ([*]ID)
+) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE CUSTOMERS (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  social_security_number varchar(255) NOT NULL,
+  email varchar(500) NOT NULL,
+  phone_number varchar(500) NOT NULL
+  PRIMARY KEY (id)
+) [42001-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:555) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.read(Parser.java:3518) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.readIfMore(Parser.java:950) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6571) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreate(Parser.java:4615) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parsePrepared(Parser.java:380) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:335) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:311) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.prepareCommand(Parser.java:278) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareLocal(Session.java:611) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareCommand(Session.java:549) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+
+2019-10-12 20:15:22.974 ERROR 17940 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.2 - create account table failed! Please restore backups and roll back database and code!
+2019-10-12 20:15:23.011 ERROR 17940 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_2__create_account_table.sql failed
+-----------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "ACCOUNT_ID" not found; SQL statement:
+CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+) [42122-197]
+Location   : db/migration/V1/V1_2__create_account_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_2__create_account_table.sql)
+Line       : 2
+Statement  : CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_2__create_account_table.sql failed
+-----------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "ACCOUNT_ID" not found; SQL statement:
+CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+) [42122-197]
+Location   : db/migration/V1/V1_2__create_account_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_2__create_account_table.sql)
+Line       : 2
+Statement  : CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_2__create_account_table.sql failed
+-----------------------------------------------
+SQL State  : 42S22
+Error Code : 42122
+Message    : Column "ACCOUNT_ID" not found; SQL statement:
+CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+) [42122-197]
+Location   : db/migration/V1/V1_2__create_account_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\spring-demo-boot-2\target\classes\db\migration\V1\V1_2__create_account_table.sql)
+Line       : 2
+Statement  : CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Column "ACCOUNT_ID" not found; SQL statement:
+CREATE TABLE ACCOUNT (
+  id bigint(20) NOT NULL,
+  account_number varchar(500) NOT NULL,
+  balance double NOT NULL DEFAULT '0',
+  customer_id bigint(20) NOT NULL,
+  PRIMARY KEY (account_id),
+  UNIQUE KEY account_number (account_number),
+  CONSTRAINT account_ibfk_1 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS (id)
+) [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:179) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:155) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.table.Table.getColumn(Table.java:682) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:119) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:78) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:88) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:122) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Command.executeUpdate(Command.java:261) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+
+2019-10-12 23:40:08.229 ERROR 4800 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.3 - create transfers table failed! Please restore backups and roll back database and code!
+2019-10-12 23:40:08.288 ERROR 4800 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE TRANSFERS (
+    ID BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TRANSFER_TYPE_ID INT,
+    TRANSFER_DATE DATETIME NOT NULL DEFAULT NOW(),
+    SOURCE_ACCOUNT_NUMBER VARCHAR(500) NOT NULL,
+    TARGET_ACCOUNT_NUMBER VARCHAR(500) NOT NULL
+    CONSTRAINT TRANSFER_IBFK_1 FOREIGN[*] KEY (TRANSFER_TYPE_ID) REFERENCES TRANSFER_TYPES (ID)
+) "; expected "PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+) [42001-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE TRANSFERS (
+    ID BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TRANSFER_TYPE_ID INT,
+    TRANSFER_DATE DATETIME NOT NULL DEFAULT NOW(),
+    SOURCE_ACCOUNT_NUMBER VARCHAR(500) NOT NULL,
+    TARGET_ACCOUNT_NUMBER VARCHAR(500) NOT NULL
+    CONSTRAINT TRANSFER_IBFK_1 FOREIGN[*] KEY (TRANSFER_TYPE_ID) REFERENCES TRANSFER_TYPES (ID)
+) "; expected "PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+) [42001-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement "CREATE TABLE TRANSFERS (
+    ID BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TRANSFER_TYPE_ID INT,
+    TRANSFER_DATE DATETIME NOT NULL DEFAULT NOW(),
+    SOURCE_ACCOUNT_NUMBER VARCHAR(500) NOT NULL,
+    TARGET_ACCOUNT_NUMBER VARCHAR(500) NOT NULL
+    CONSTRAINT TRANSFER_IBFK_1 FOREIGN[*] KEY (TRANSFER_TYPE_ID) REFERENCES TRANSFER_TYPES (ID)
+) "; expected "PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+) [42001-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE TRANSFERS (
+    ID BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    TRANSFER_TYPE_ID INT,
+    TRANSFER_DATE DATETIME NOT NULL DEFAULT NOW(),
+    SOURCE_ACCOUNT_NUMBER VARCHAR(500) NOT NULL,
+    TARGET_ACCOUNT_NUMBER VARCHAR(500) NOT NULL
+    CONSTRAINT TRANSFER_IBFK_1 FOREIGN[*] KEY (TRANSFER_TYPE_ID) REFERENCES TRANSFER_TYPES (ID)
+) "; expected "PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null auto_increment primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id)
+) [42001-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:555) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.read(Parser.java:3518) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.readIfMore(Parser.java:950) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6571) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreate(Parser.java:4615) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parsePrepared(Parser.java:380) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:335) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:311) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.prepareCommand(Parser.java:278) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareLocal(Session.java:611) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareCommand(Session.java:549) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+
+2019-10-12 23:40:43.294 ERROR 11416 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.7 - insert sample data transfers failed! Please restore backups and roll back database and code!
+2019-10-12 23:40:43.345 ERROR 11416 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 21S02
+Error Code : 21002
+Message    : Column count does not match; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) [21002-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 21S02
+Error Code : 21002
+Message    : Column count does not match; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) [21002-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 21S02
+Error Code : 21002
+Message    : Column count does not match; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) [21002-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) [21002-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:179) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:155) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:144) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.dml.Insert.prepare(Insert.java:306) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.prepareCommand(Parser.java:283) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareLocal(Session.java:611) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareCommand(Session.java:549) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+
+2019-10-12 23:43:31.680 ERROR 9112 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.7 - insert sample data transfers failed! Please restore backups and roll back database and code!
+2019-10-12 23:43:31.739 ERROR 9112 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 22007
+Error Code : 22007
+Message    : Cannot parse "TIMESTAMP" constant "10/02/2019"; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) -- (2, '10/02/2019', 'GR12345467898900', 'GRTH9878998766', 500) [22007-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 22007
+Error Code : 22007
+Message    : Cannot parse "TIMESTAMP" constant "10/02/2019"; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) -- (2, '10/02/2019', 'GR12345467898900', 'GRTH9878998766', 500) [22007-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_7__insert_sample_data_transfers.sql failed
+-------------------------------------------------------
+SQL State  : 22007
+Error Code : 22007
+Message    : Cannot parse "TIMESTAMP" constant "10/02/2019"; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) -- (2, '10/02/2019', 'GR12345467898900', 'GRTH9878998766', 500) [22007-197]
+Location   : db/migration/V1/V1_7__insert_sample_data_transfers.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_7__insert_sample_data_transfers.sql)
+Line       : 4
+Statement  : insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Cannot parse "TIMESTAMP" constant "10/02/2019"; SQL statement:
+insert into TRANSFERS (transfer_type_id, transfer_date, source_account_number, target_account_number, amount)
+values (2,'10/02/2019', 'GR12345467898900', 'GRTH9878998766',  500) -- (2, '10/02/2019', 'GR12345467898900', 'GRTH9878998766', 500) [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:168) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.value.Value.convertTo(Value.java:1071) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.table.Column.convert(Column.java:177) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.dml.Insert.update(Insert.java:134) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Command.executeUpdate(Command.java:261) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+Caused by: java.lang.IllegalArgumentException: 10/02/2019
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:345) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145) ~[h2-1.4.197.jar:1.4.197]
+	... 55 common frames omitted
+
+2019-10-12 23:46:48.088 ERROR 19792 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column "TRANSFERS0_.ACCOUNT_ID" not found; SQL statement:
+select transfers0_.account_id as account_6_4_0_, transfers0_.id as id1_4_0_, transfers0_.id as id1_4_1_, transfers0_.source_account_number as source_a2_4_1_, transfers0_.target_account_number as target_a3_4_1_, transfers0_.transfer_date as transfer4_4_1_, transfers0_.transfer_type_id as transfer5_4_1_ from transfers transfers0_ where transfers0_.account_id=? [42122-197]
+2019-10-12 23:53:15.910 ERROR 10348 --- [main] o.f.core.internal.command.DbMigrate      : Migration of schema "PUBLIC" to version 1.3 - create transfers table failed! Please restore backups and roll back database and code!
+2019-10-12 23:53:15.949 ERROR 10348 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : HY004
+Error Code : 50004
+Message    : Unknown data type: "("; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+) [50004-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:307) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204) [spring-boot-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at com.silionie.FinanceApp.main(FinanceApp.java:11) [classes/:na]
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : HY004
+Error Code : 50004
+Message    : Unknown data type: "("; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+) [50004-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1395) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1711) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1356) ~[flyway-core-5.2.4.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:65) ~[spring-boot-autoconfigure-2.1.8.RELEASE.jar:2.1.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 18 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V1_3__create_transfers_table.sql failed
+-------------------------------------------------
+SQL State  : HY004
+Error Code : 50004
+Message    : Unknown data type: "("; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+) [50004-197]
+Location   : db/migration/V1/V1_3__create_transfers_table.sql (C:\Users\evouli\Workspace\tech_assignments\pagantis\pagantis-finance\target\classes\db\migration\V1\V1_3__create_transfers_table.sql)
+Line       : 8
+Statement  : CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:253) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367) ~[flyway-core-5.2.4.jar:na]
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Unknown data type: "("; SQL statement:
+CREATE TABLE TRANSFERS (
+    id bigint(20) not null AUTO_INCREMENT primary key,
+    transfer_type_id int,
+    transfer_date datetime not null default now(),
+    source_account_number varchar(500) not null,
+    target_account_number varchar(500) not null,
+    amount bigint(20) not null,
+    account_id (20) not null,
+    constraint transfer_ibfk_1 foreign key (transfer_type_id) references TRANSFER_TYPES (id),
+    constraint transfer_ibfk_2 foreign key (account_id) references ACCOUNT (id)
+) [50004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:179) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.message.DbException.get(DbException.java:155) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4400) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:4215) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:6662) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6570) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parseCreate(Parser.java:4615) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parsePrepared(Parser.java:380) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:335) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.parse(Parser.java:307) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.command.Parser.prepareCommand(Parser.java:278) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareLocal(Session.java:611) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.engine.Session.prepareCommand(Session.java:549) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217) ~[h2-1.4.197.jar:1.4.197]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205) ~[h2-1.4.197.jar:1.4.197]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.2.0.jar:na]
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42) ~[flyway-core-5.2.4.jar:na]
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189) ~[flyway-core-5.2.4.jar:na]
+	... 42 common frames omitted
+

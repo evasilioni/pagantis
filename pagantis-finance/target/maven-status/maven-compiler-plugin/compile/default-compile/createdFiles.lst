@@ -1,0 +1,8 @@
+com\silionie\dao\BankRepository.class
+com\silionie\model\Bank.class
+com\silionie\api\BankController.class
+com\silionie\finance\FinanceApp.class
+com\silionie\model\Transfer.class
+com\silionie\model\Account.class
+com\silionie\service\BankService.class
+com\silionie\model\Customer.class
