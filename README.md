@@ -1,7 +1,8 @@
 # pagantis
-# Model which is operated is a Banking model where Banks have customers. Customers have accounts.
-# Accounts hold money. Transfers are done between accounts. Account holds a list of all
-# transfers.
+# Model which is operated is a Banking model
+ Banks have customers. Customers have accounts.
+ Accounts hold money. Transfers are done between accounts. Account holds a list of all
+ transfers.
 There can be two types of transfers:
 ● Intra-bank transfers, between accounts of the same bank. They don't have commissions,
 they don't have limits and they always succeed.
