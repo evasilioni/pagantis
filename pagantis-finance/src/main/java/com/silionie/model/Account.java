@@ -1,8 +1,5 @@
 package com.silionie.model;
 
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -24,6 +21,9 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "bank_customer_id")
     private BankCustomer bankCustomer;
+
+//    @OneToMany(mappedBy = "account")
+//    private List<Transfer> transfers = new ArrayList<>();
 
     public long getId() {
         return id;

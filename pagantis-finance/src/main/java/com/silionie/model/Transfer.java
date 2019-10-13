@@ -7,15 +7,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "transfers") // rename the table accordingly
+@Table(name = "TRANSFERS")
 public class Transfer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "transfer_type_id")
-    private String transferTypeId;
+    @ManyToOne
+    @JoinColumn(name = "transfer_type_id")
+    private TransferType transferType;
 
     @Column(name = "transfer_date")
     private Date transferDate;
@@ -28,9 +29,19 @@ public class Transfer {
 
     private BigDecimal amount;
 
-    @JsonIgnore
-    @Column(name = "account_id")
-    private Long accountId;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+
+    public Transfer() {
+    }
+
+    public Transfer(TransferType transferType, String sourceAccountNumber, String targetAccountNumber, BigDecimal amount) {
+        this.transferType = transferType;
+        this.sourceAccountNumber = sourceAccountNumber;
+        this.targetAccountNumber = targetAccountNumber;
+        this.amount = amount;
+    }
 
     public long getId() {
         return id;
@@ -40,12 +51,12 @@ public class Transfer {
         this.id = id;
     }
 
-    public String getTransferTypeId() {
-        return transferTypeId;
+    public TransferType getTransferType() {
+        return transferType;
     }
 
-    public void setTransferTypeId(String transferTypeId) {
-        this.transferTypeId = transferTypeId;
+    public void setTransferType(TransferType transferType) {
+        this.transferType = transferType;
     }
 
     public Date getTransferDate() {
@@ -73,19 +84,19 @@ public class Transfer {
         this.targetAccountNumber = targetAccountNumber;
     }
 
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
     public BigDecimal getAmount() {
         return amount;
     }
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

@@ -37,7 +37,7 @@ public class CustomerController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
     public @ResponseBody
-    ResponseEntity<List<Account>> getCustomerAccounts(@PathVariable Long bankId,
+    ResponseEntity<List<Account>> getAccounts(@PathVariable Long bankId,
                                                       @PathVariable Long customerId) {
         List<Account> accounts = customerService.findCustomerAccounts(bankId, customerId);
         return ResponseEntity.ok(accounts);

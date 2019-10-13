@@ -1,6 +1,6 @@
 package com.silionie.api;
 
-import com.silionie.model.Account;
+import com.silionie.exceptions.TransferException;
 import com.silionie.model.Transfer;
 import com.silionie.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,12 @@ public class AccountController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
     public @ResponseBody
-    ResponseEntity<Transfer> sendTransfer(@PathVariable Long accountId, @RequestBody Transfer transfer) {
-        Transfer transfer = accountService.sendTransfer(accountId, transfer);
-        return ResponseEntity.ok(transfer);
+    ResponseEntity<Transfer> sendTransfer(@PathVariable Long accountId, @RequestBody Transfer transfer) throws TransferException {
+        Transfer transferPersisted = accountService.send(accountId, transfer);
+        if(transferPersisted.getId() != 0){
+            return ResponseEntity.accepted().body(transferPersisted);
+        }
+
+        return ResponseEntity.badRequest().build();
     }
 }

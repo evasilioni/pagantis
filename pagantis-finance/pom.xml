@@ -12,6 +12,7 @@
 	<artifactId>finance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pagantis-finance</name>
+	<packaging>jar</packaging>
 	<description>Tech project for Pagantis</description>
 
 	<properties>
