@@ -1,7 +1,7 @@
 BEGIN;
 
 insert into ACCOUNT (account_number, balance, bank_customer_id) values ('GR12345467898900', 10000, 2);
-insert into ACCOUNT (account_number, balance, bank_customer_id) values ('NGB0987654321', 3490, 2);
+insert into ACCOUNT (account_number, balance, bank_customer_id) values ('NGB0987654321', 400, 2);
 insert into ACCOUNT (account_number, balance, bank_customer_id) values ('HSB12345467898900', 23000, 2);
 insert into ACCOUNT (account_number, balance, bank_customer_id) values ('WX09878998766', 11000, 1);
 insert into ACCOUNT (account_number, balance, bank_customer_id) values ('GRTH9878998766', 12000, 1);

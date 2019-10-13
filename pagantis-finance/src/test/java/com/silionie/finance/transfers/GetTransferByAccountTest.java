@@ -42,7 +42,7 @@ public class GetTransferByAccountTest extends FinanceAppTest {
 
         Transfer historicTransfer = response.getBody().get(0);
 
-        assertThat(historicTransfer.getAmount()).isEqualTo(new BigDecimal(500));
+        assertThat(historicTransfer.getAmount()).isEqualTo(new BigDecimal(500).setScale(2));
         assertThat(historicTransfer.getTransferType().getName()).isEqualTo(TransferTypeEnum.INTRA.name());
         assertThat(historicTransfer.getSourceAccountNumber()).isEqualTo("GR12345467898900");
         assertThat(historicTransfer.getTargetAccountNumber()).isEqualTo("GRTH9878998766");
