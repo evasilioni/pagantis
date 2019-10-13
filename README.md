@@ -1,7 +1,7 @@
 # pagantis
-# Model in which you gonna operate: Banks have customers. Customers have accounts.
-Accounts hold money. Transfers are done between accounts. Account holds a list of all
-transfers.
+# Model which is operated is a Banking model where Banks have customers. Customers have accounts.
+# Accounts hold money. Transfers are done between accounts. Account holds a list of all
+# transfers.
 There can be two types of transfers:
 ● Intra-bank transfers, between accounts of the same bank. They don't have commissions,
 they don't have limits and they always succeed.
@@ -38,8 +38,9 @@ Data structurer is defined by the two files that are included DataStructures.sql
 ## Use of application
 ### Tools you need to run the application
     1. No need to install a DB as we used for our perposes H2 in memory database
-    2. Install Maven 3 (apache-maven-3.6.1)
-    3. Install jdk1.8.0_211(Java 8)
+    2. Flyway Tool was used to completed the DB migrations and create the DB schema
+    3. Install Maven 3 (apache-maven-3.6.1)
+    4. Install jdk1.8.0_211(Java 8)
 
 
 ## Package and run it.
