@@ -53,3 +53,13 @@ Data structurer is defined by the two files that are included DataStructures.sql
 6. Run the tests : " mvn test " 
 
 
+### Part 3
+#### How would you improve your solution? What would be the next steps?
+Complete the CRUD Rest Api for Banks, Customers, Accounts
+#### After implementation, is there any design decision that you would have done different?
+Better approach of responses and exception handling. Perhaps also a better design for account and transfers regarding modeling.
+#### How would you adapt your solution if transfers are not instantaneous?
+Maybe a scheduler should be implemented for tranfers that has to be completed in a specific time.
+
+
+
